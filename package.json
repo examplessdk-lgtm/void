@@ -6,6 +6,8 @@
     "build:core": "vp run --filter ./packages/deploy-core --filter ./packages/deploy-cloudflare --filter ./packages/edge --filter ./packages/isr --filter ./packages/platform --filter ./packages/void build",
     "build:docs": "vp run --filter ./docs build",
     "build:platform": "vp run --filter './platform/packages/**' build",
+    "cf:build": "vp run build:docs",
+    "cf:deploy": "wrangler deploy -c docs/wrangler.jsonc",
     "check": "vp run --filter './**' --filter '!./playground-local/**' --parallel --concurrency-limit=4 typecheck",
     "check:platform": "vp run --filter './platform/**' --parallel typecheck",
     "check:sdk": "vp run --filter './packages/**' --parallel typecheck",
@@ -35,7 +37,8 @@
     "rolldown": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "catalog:"
   },
   "packageManager": "pnpm@12.11.2"
 }
